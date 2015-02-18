@@ -1,7 +1,7 @@
 #Page 126
 def search(L, e):
-   """L�����X�g�Ƃ���
-      e��L�ɂ����True���C�����łȂ����False��Ԃ�"""
+   """Lをリストとする
+      eがLにあればTrueを，そうでなければFalseを返す"""
 
 def search(L, e):
    for i in range(len(L)):
@@ -11,8 +11,8 @@ def search(L, e):
 
 #Page 128
 def search(L, e):
-   """L���C�v�f�������ŕ��񂾃��X�g�Ƃ���
-      e��L�ɂ����True���C�����łȂ����False��Ԃ�"""
+   """Lを，要素が昇順で並んだリストとする
+      eがLにあればTrueを，そうでなければFalseを返す"""
    for i in range(len(L)):
       if L[i] == e:
          return True
@@ -22,18 +22,18 @@ def search(L, e):
 
 #Page 129, Figure 10.2
 def search(L, e):
-   """L���C�v�f�������ŕ��񂾃��X�g�Ƃ���
-      e��L�ɂ����True���C�����łȂ����False��Ԃ�"""
+   """Lを，要素が昇順で並んだリストとする
+      eがLにあればTrueを，そうでなければFalseを返す"""
 
    def bSearch(L, e, low, high):
-      #high - low������������
+      #high - lowを減少させる
       if high == low:
          return L[low] == e
       mid = (low + high)//2
       if L[mid] == e:
          return True
       elif L[mid] > e:
-         if low == mid: #�T���Ώۂ͎c���Ă��Ȃ�
+         if low == mid: #探索対象は残っていない
             return False
          else:
             return bSearch(L, e, low, mid - 1)
@@ -47,23 +47,23 @@ def search(L, e):
 
 #Page 132, Figure 10.3
 def selSort(L):
-   """L���C>��p���Ĕ�r�ł���v�f����Ȃ郊�X�g�Ƃ���
-      L�������Ƀ\�[�g����"""
+   """Lを，>を用いて比較できる要素からなるリストとする
+      Lを昇順にソートする"""
    suffixStart = 0
    while suffixStart != len(L):
-      #�T�t�B�b�N�X�̊e�v�f������
+      #サフィックスの各要素を見る
       for i in range(suffixStart, len(L)):
          if L[i] < L[suffixStart]:
-            #�v�f�̈ʒu�����ւ���
+            #要素の位置を入れ替える
             L[suffixStart], L[i] = L[i], L[suffixStart]
       suffixStart += 1
 
 #Page 134, Figure 10.4
 def merge(left, right, compare):
-   """left��right���\�[�g�ς݂̃��X�g�Ƃ��C
-      compare��v�f�Ԃ̏������`����֐��Ƃ���
-      (left + right)�Ɠ����v�f����Ȃ�C
-      compare�ɏ]���\�[�g���ꂽ�V���ȃ��X�g��Ԃ�"""
+   """leftとrightをソート済みのリストとし，
+      compareを要素間の順序を定義する関数とする
+      (left + right)と同じ要素からなり，
+      compareに従いソートされた新たなリストを返す"""
 
    result = []
    i,j = 0, 0
@@ -85,9 +85,9 @@ def merge(left, right, compare):
 import operator
 
 def mergeSort(L, compare = operator.lt):
-   """L�����X�g�Ƃ��C
-      compare��L�̗v�f�Ԃ̏������`����֐��Ƃ���
-      L�Ɠ����v�f����Ȃ�C�\�[�g���ꂽ�V���ȃ��X�g��Ԃ�"""
+   """Lをリストとし，
+      compareをLの要素間の順序を定義する関数とする
+      Lと同じ要素からなり，ソートされた新たなリストを返す"""
    if len(L) < 2:
       return L[:]
    else:
@@ -103,7 +103,7 @@ def lastNameFirstName(name1, name2):
    name2 = string.split(name2, ' ')
    if name1[1] != name2[1]:
       return name1[1] < name2[1]
-   else: #���������ł���΁C���ɂ��\�[�g
+   else: #姓が同じであれば，名によりソート
       return name1[0] < name2[0]
 
 def firstNameLastName(name1, name2):
@@ -112,7 +112,7 @@ def firstNameLastName(name1, name2):
    name2 = string.split(name2, ' ')
    if name1[0] != name2[0]:
       return name1[0] < name2[0]
-   else: #���������ł���΁C���ɂ��\�[�g
+   else: #名が同じであれば，姓によりソート
       return name1[1] < name2[1]
 
 L = ['Chris Terman', 'Tom Brady', 'Eric Grimson', 'Gisele Bundchen']
@@ -136,17 +136,17 @@ print sorted(L, key = len, reverse = True)
 
 #Page 139, Figure 10.6
 class intDict(object):
-   """�������L�[�Ƃ��鎫��"""
+   """整数をキーとする辞書"""
 
    def __init__(self, numBuckets):
-      """��̎����𐶐�����"""
+      """空の辞書を生成する"""
       self.buckets = []
       self.numBuckets = numBuckets
       for i in range(numBuckets):
          self.buckets.append([])
 
    def addEntry(self, dictKey, dictVal):
-      """dictKey��int�^�Ƃ��C�G���g����ǉ�����"""
+      """dictKeyをint型とし，エントリを追加する"""
       hashBucket = self.buckets[dictKey%self.numBuckets]
       for i in range(len(hashBucket)):
          if hashBucket[i][0] == dictKey:
@@ -155,8 +155,8 @@ class intDict(object):
       hashBucket.append((dictKey, dictVal))
 
    def getValue(self, dictKey):
-      """dictKey��int�^�Ƃ���
-         �L�[dictKey�Ɋ֘A�t����ꂽ�G���g����Ԃ�"""
+      """dictKeyをint型とする
+         キーdictKeyに関連付けられたエントリを返す"""
       hashBucket = self.buckets[dictKey%self.numBuckets]
       for e in hashBucket:
          if e[0] == dictKey:
@@ -168,18 +168,18 @@ class intDict(object):
       for b in self.buckets:
          for e in b:
             result = result + str(e[0]) + ':' + str(e[1]) + ','
-      return result[:-1] + '}' #result[:-1]�ɂ��Ō�̃J���}���Ȃ�
+      return result[:-1] + '}' #result[:-1]により最後のカンマを省く
  
 #Page 139
-import random #�W�����C�u�������W���[��
+import random #標準ライブラリモジュール
 
 D = intDict(29)
 for i in range(20):
-   #0����10**5�܂ł̐����������_���ɑI��
+   #0から10**5までの整数をランダムに選ぶ
    key = random.randint(0, 10**5)
    D.addEntry(key, i)
 print 'The value of the intDict is:'
 print D
 print '\n', 'The buckets are:'
-for hashBucket in D.buckets: #���ۉ��̕ǂ�N��
+for hashBucket in D.buckets: #抽象化の壁を侵す
    print '  ', hashBucket

@@ -3,26 +3,26 @@ from rcParamsSettings import *
 
 #Page 224, Figure 16.1
 def plotHousing(impression):
-    """impression�́C�fflat�f�C�fvolatile�f�C�ffair�f
-       �̂����ꂩ�̒l���Ƃ镶����Ɖ��肷��D
-       ���Ԍo�߂ɔ����Z��i�̖_�O���t�𐶐�����"""
+    """impressionは，’flat’，’volatile’，’fair’
+       のいずれかの値をとる文字列と仮定する．
+       時間経過に伴う住宅価格の棒グラフを生成する"""
     f = open('midWestHousingPrices.txt', 'r')
-    #�t�@�C���̊e�s�́C�A�����J���O���������̎l�������Ƃ̉��i��\���Ă���D
+    #ファイルの各行は，アメリカ合衆国中西部の四半期ごとの価格を表している．
     labels, prices = ([], [])
     for line in f:
         year, quarter, price = line.split()
         label = year[2:4] + '\n Q' + quarter[1]
         labels.append(label)
         prices.append(float(price)/1000)
-    quarters = pylab.arange(len(labels)) #�_�O���t��x���W
-    width = 0.8 #�_�O���t�̕�
+    quarters = pylab.arange(len(labels)) #棒グラフのx座標
+    width = 0.8 #棒グラフの幅
     if impression == 'flat':
         pylab.semilogy()
     pylab.bar(quarters, prices, width)
     pylab.xticks(quarters+width/2.0, labels)
-    pylab.title(�e�A�����J���O���������ł̏Z��i')
-    pylab.xlabel(�e�l�����f)
-    pylab.ylabel(�e���ω��i ($1,000\'s)')
+    pylab.title(‘アメリカ合衆国中西部での住宅価格')
+    pylab.xlabel(‘四半期’)
+    pylab.ylabel(‘平均価格 ($1,000\'s)')
     if impression == 'flat':
         pylab.ylim(10, 10**3)
     elif impression == 'volatile':
@@ -49,7 +49,7 @@ def juneProb(numTrials):
       if june >= 48:
           june48 += 1
     jProb = june48/float(numTrials)
-    print �e�Z���ɏ��Ȃ��Ƃ�48�l�����܂��m�� =', jProb
+    print ‘六月に少なくとも48人が生まれる確率 =', jProb
 
 #Page 231, Figure 16.3
 def anyProb(numTrials):
@@ -61,4 +61,4 @@ def anyProb(numTrials):
       if max(months) >= 48:
           anyMonth48 += 1
     aProb = anyMonth48/float(numTrials)
-    print �e�����ꂩ�̌��ɏ��Ȃ��Ƃ�48�l�����܂��m�� =', aProb
+    print ‘いずれかの月に少なくとも48人が生まれる確率 =', aProb

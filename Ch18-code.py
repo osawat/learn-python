@@ -1,4 +1,4 @@
-﻿import random
+import random
 
 #Page 252, Fig. 18.1
 def fib(n):

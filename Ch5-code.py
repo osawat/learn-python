@@ -14,9 +14,9 @@ print (t1 + t2)[2:5]
 
 #Page 57
 def findDivisors (n1, n2):
-    """n1‚Æn2‚ğ³‚ÌintŒ^‚Æ‚·‚éD
-       n1‚Æn2‚Ì‚·‚×‚Ä‚ÌŒö–ñ”‚©‚ç‚È‚éƒ^ƒvƒ‹‚ğ•Ô‚·"""
-    divisors = () #‹ó‚Ìƒ^ƒvƒ‹
+    """n1ã¨n2ã‚’æ­£ã®intå‹ã¨ã™ã‚‹ï¼
+       n1ã¨n2ã®ã™ã¹ã¦ã®å…¬ç´„æ•°ã‹ã‚‰ãªã‚‹ã‚¿ãƒ—ãƒ«ã‚’è¿”ã™"""
+    divisors = () #ç©ºã®ã‚¿ãƒ—ãƒ«
     for i in range(1, min (n1, n2) + 1):
         if n1%i == 0 and n2%i == 0:
             divisors = divisors + (i,)
@@ -31,10 +31,10 @@ print total
 
 #Page 58
 def findExtremeDivisors(n1, n2):
-    """n1‚Æn2‚ğ³‚ÌintŒ^‚Æ‚·‚éD
-       n1‚Æn2‚ÌÅ¬‚ÌŒö–ñ” > 1‚ÆÅ‘å‚ÌŒö–ñ”‚©‚ç‚È‚é
-       ƒ^ƒvƒ‹‚ğ•Ô‚·""" 	
-    divisors = () #‹ó‚Ìƒ^ƒvƒ‹
+    """n1ã¨n2ã‚’æ­£ã®intå‹ã¨ã™ã‚‹ï¼
+       n1ã¨n2ã®æœ€å°ã®å…¬ç´„æ•° > 1ã¨æœ€å¤§ã®å…¬ç´„æ•°ã‹ã‚‰ãªã‚‹
+       ã‚¿ãƒ—ãƒ«ã‚’è¿”ã™""" 	
+    divisors = () #ç©ºã®ã‚¿ãƒ—ãƒ«
     minVal, maxVal = None, None
     for i in range(2, min(n1, n2) + 1):
         if n1%i == 0 and n2%i == 0:
@@ -59,8 +59,8 @@ print 'Univs1 =', Univs1
 print Univs == Univs1
 
 #Pages 60-62
-print Univs == Univs1 #’l‚ª“™‚µ‚¢‚©ƒeƒXƒg
-print id(Univs) == id(Univs1) #ƒIƒuƒWƒFƒNƒg‚ª“™‚µ‚¢‚©ƒeƒXƒg
+print Univs == Univs1 #å€¤ãŒç­‰ã—ã„ã‹ãƒ†ã‚¹ãƒˆ
+print id(Univs) == id(Univs1) #ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç­‰ã—ã„ã‹ãƒ†ã‚¹ãƒˆ
 print 'Id of Univs =', id(Univs)
 print 'Id of Univs1 =', id(Univs1)
 
@@ -86,8 +86,8 @@ print 'L1 =', L1
 
 #Page 63-64
 def removeDups(L1, L2):
-    """L1‚ÆL2‚ğƒŠƒXƒg‚Æ‚·‚éD
-       L1‚©‚çCL2‚Ì’†‚É‚à‘¶İ‚·‚é—v‘f‚ğæ‚èœ‚­""" 	
+    """L1ã¨L2ã‚’ãƒªã‚¹ãƒˆã¨ã™ã‚‹ï¼
+       L1ã‹ã‚‰ï¼ŒL2ã®ä¸­ã«ã‚‚å­˜åœ¨ã™ã‚‹è¦ç´ ã‚’å–ã‚Šé™¤ã""" 	
     for e1 in L1:
         print len(L1)
         if e1 in L2:
@@ -106,8 +106,8 @@ print [x**2 for x in mixed if type(x) == int]
 #Page 64, Figure 5.5
 from functionsFromChapter4 import *
 def applyToEach(L, f):
-   """L‚ğƒŠƒXƒg‚Æ‚µCf‚ğŠÖ”‚Æ‚·‚éD
-      L‚Ì‚»‚ê‚¼‚ê‚Ì—v‘fe‚ğf(e)‚É’u‚«Š·‚¦‚ÄL‚ğXV‚·‚é"""
+   """Lã‚’ãƒªã‚¹ãƒˆã¨ã—ï¼Œfã‚’é–¢æ•°ã¨ã™ã‚‹ï¼
+      Lã®ãã‚Œãã‚Œã®è¦ç´ eã‚’f(e)ã«ç½®ãæ›ãˆã¦Lã‚’æ›´æ–°ã™ã‚‹"""
    for i in range(len(L)):
       L[i] = f(L[i])
       

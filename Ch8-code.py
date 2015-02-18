@@ -3,45 +3,45 @@ print type(IntSet), type(IntSet.insert)
 
 #Page 93, Figure 8.1
 class IntSet(object):
-    """intSet‚Í®”‚ÌW‡‚Å‚ ‚é"""
-    #‚±‚±‚ÉÀ‘•‚ÉŠÖ‚·‚éî•ñ‚ğ‘‚­i’ŠÛ‰»‚Ìî•ñ‚Å‚Í‚È‚¢jD
-    #W‡‚ÍCintŒ^‚Ì—v‘f‚©‚ç‚È‚éƒŠƒXƒgself.vals‚É‚æ‚Á‚Ä•\‚í‚³‚ê‚éD
-    #intŒ^‚Ì—v‘f‚Í‚»‚ê‚¼‚êCƒŠƒXƒgself.vals‚É‚¿‚å‚¤‚Ç1“x‚¾‚¯Œ»‚ê‚éD
+    """intSetã¯æ•´æ•°ã®é›†åˆã§ã‚ã‚‹"""
+    #ã“ã“ã«å®Ÿè£…ã«é–¢ã™ã‚‹æƒ…å ±ã‚’æ›¸ãï¼ˆæŠ½è±¡åŒ–ã®æƒ…å ±ã§ã¯ãªã„ï¼‰ï¼
+    #é›†åˆã¯ï¼Œintå‹ã®è¦ç´ ã‹ã‚‰ãªã‚‹ãƒªã‚¹ãƒˆself.valsã«ã‚ˆã£ã¦è¡¨ã‚ã•ã‚Œã‚‹ï¼
+    #intå‹ã®è¦ç´ ã¯ãã‚Œãã‚Œï¼Œãƒªã‚¹ãƒˆself.valsã«ã¡ã‚‡ã†ã©1åº¦ã ã‘ç¾ã‚Œã‚‹ï¼
 
     def __init__(self):
-        """®”‚Ì‹óW‡‚ğ¶¬‚·‚é"""
+        """æ•´æ•°ã®ç©ºé›†åˆã‚’ç”Ÿæˆã™ã‚‹"""
         self.vals = []
 
     def insert(self, e):
-        """e‚ğintŒ^‚Æ‚µCe‚ğself‚É‘}“ü‚·‚é"""
+        """eã‚’intå‹ã¨ã—ï¼Œeã‚’selfã«æŒ¿å…¥ã™ã‚‹"""
         if not e in self.vals:
             self.vals.append(e)
 
     def member(self, e):
-        """e‚ğintŒ^‚Æ‚·‚é
-           e‚ªself‚É‚ ‚ê‚ÎTrue‚ğC‚È‚¯‚ê‚ÎFalse‚ğ•Ô‚·"""
+        """eã‚’intå‹ã¨ã™ã‚‹
+           eãŒselfã«ã‚ã‚Œã°Trueã‚’ï¼Œãªã‘ã‚Œã°Falseã‚’è¿”ã™"""
         return e in self.vals
 
     def remove(self, e):
-        """e‚ğintŒ^‚Æ‚µCe‚ğself‚©‚çíœ‚·‚é
-           e‚ªself‚É‚È‚¯‚ê‚Î—áŠOValueError‚ğ”­¶‚³‚¹‚é"""
+        """eã‚’intå‹ã¨ã—ï¼Œeã‚’selfã‹ã‚‰å‰Šé™¤ã™ã‚‹
+           eãŒselfã«ãªã‘ã‚Œã°ä¾‹å¤–ValueErrorã‚’ç™ºç”Ÿã•ã›ã‚‹"""
         try:
             self.vals.remove(e)
         except:
             raise ValueError(str(e) + ' not found')
 
     def getMembers(self):
-        """self‚ªŠÜ‚Ş—v‘f‚ğ‚ÂƒŠƒXƒg‚ğ•Ô‚·
-           —v‘f‚Ì‡˜‚ÉŠÖ‚µ‚Ä‚Í‰½‚à–ñ‘©‚Å‚«‚È‚¢"""
+        """selfãŒå«ã‚€è¦ç´ ã‚’æŒã¤ãƒªã‚¹ãƒˆã‚’è¿”ã™
+           è¦ç´ ã®é †åºã«é–¢ã—ã¦ã¯ä½•ã‚‚ç´„æŸã§ããªã„"""
         return self.vals[:]
 
     def __str__(self):
-        """self‚Ì•¶š—ñ•\Œ»‚ğ•Ô‚·"""
+        """selfã®æ–‡å­—åˆ—è¡¨ç¾ã‚’è¿”ã™"""
         self.vals.sort()
         result = ''
         for e in self.vals:
             result = result + str(e) + ','
-        return '{' + result[:-1] + '}' #-1‚Æ‚µ‚½‚Ì‚ÍÅŒã‚ÌƒJƒ“ƒ}‚ğœ‚­‚½‚ß
+        return '{' + result[:-1] + '}' #-1ã¨ã—ãŸã®ã¯æœ€å¾Œã®ã‚«ãƒ³ãƒã‚’é™¤ããŸã‚
 
 #Page 94
 s = IntSet()
@@ -62,7 +62,7 @@ import datetime
 class Person(object):
 
     def __init__(self, name):
-        """ulŠÔv‚ğ¶¬‚·‚é"""
+        """ã€Œäººé–“ã€ã‚’ç”Ÿæˆã™ã‚‹"""
         self.name = name
         try:
             lastBlank = name.rindex(' ')
@@ -72,33 +72,33 @@ class Person(object):
         self.birthday = None
 
     def getName(self):
-        """self‚Ì–¼‘Oiƒtƒ‹ƒl[ƒ€j‚ğ•Ô‚·"""
+        """selfã®åå‰ï¼ˆãƒ•ãƒ«ãƒãƒ¼ãƒ ï¼‰ã‚’è¿”ã™"""
         return self.name
 
     def getLastName(self):
-        """self‚Ì©‚ğ•Ô‚·"""
+        """selfã®å§“ã‚’è¿”ã™"""
         return self.lastName
 
     def setBirthday(self, birthdate):
-        """birthdate‚ğdatetime.dateŒ^‚Æ‚·‚é
-           self‚Ì¶”NŒ“ú‚ğbirthdate‚Æİ’è‚·‚é"""
+        """birthdateã‚’datetime.dateå‹ã¨ã™ã‚‹
+           selfã®ç”Ÿå¹´æœˆæ—¥ã‚’birthdateã¨è¨­å®šã™ã‚‹"""
         self.birthday = birthdate
 
     def getAge(self):
-        """self‚ÌŒ»İ‚Ì”N—î‚ğ“ú’PˆÊ‚Å•Ô‚·"""
+        """selfã®ç¾åœ¨ã®å¹´é½¢ã‚’æ—¥å˜ä½ã§è¿”ã™"""
         if self.birthday == None:
             raise ValueError
         return (datetime.date.today() - self.birthday).days
 
     def __lt__(self, other):
-        """self‚Ì–¼‘O‚ªother‚Ì–¼‘O‚Æ”ä‚×‚Ä«‘‡‚Å‘O‚È‚ç‚ÎTrue‚ğC
-           ‚»‚¤‚Å‚È‚¯‚ê‚ÎFalse‚ğ•Ô‚·"""
+        """selfã®åå‰ãŒotherã®åå‰ã¨æ¯”ã¹ã¦è¾æ›¸é †ã§å‰ãªã‚‰ã°Trueã‚’ï¼Œ
+           ãã†ã§ãªã‘ã‚Œã°Falseã‚’è¿”ã™"""
         if self.lastName == other.lastName:
             return self.name < other.name
         return self.lastName < other.lastName
 
     def __str__(self):
-        """self‚Ì–¼‘Oiƒtƒ‹ƒl[ƒ€j‚ğ•Ô‚·"""
+        """selfã®åå‰ï¼ˆãƒ•ãƒ«ãƒãƒ¼ãƒ ï¼‰ã‚’è¿”ã™"""
         return self.name
 
 #Page 97
@@ -121,7 +121,7 @@ for p in pList:
 #Page 99, Figure 8.3
 class MITPerson(Person):
 
-    nextIdNum = 0 #ŒÂl¯•Ê”Ô†
+    nextIdNum = 0 #å€‹äººè­˜åˆ¥ç•ªå·
 
     def __init__(self, name):
         Person.__init__(self, name)
@@ -191,16 +191,16 @@ class TransferStudent(Student):
 
 #Page 103, Figure 8.5
 class Grades(object):
-    """Šw¶‚©‚ç¬ÑƒŠƒXƒg‚Ö‚ÌÊ‘œ"""
+    """å­¦ç”Ÿã‹ã‚‰æˆç¸¾ãƒªã‚¹ãƒˆã¸ã®å†™åƒ"""
     def __init__(self):
-        """‹ó‚Ì¬ÑƒuƒbƒN‚ğ¶¬‚·‚é"""
+        """ç©ºã®æˆç¸¾ãƒ–ãƒƒã‚¯ã‚’ç”Ÿæˆã™ã‚‹"""
         self.students = []
         self.grades = {}
         self.isSorted = True
 
     def addStudent(self, student):
-        """student‚ğStudentŒ^‚Æ‚·‚é
-           student‚ğ¬ÑƒuƒbƒN‚Ö’Ç‰Á‚·‚é"""
+        """studentã‚’Studentå‹ã¨ã™ã‚‹
+           studentã‚’æˆç¸¾ãƒ–ãƒƒã‚¯ã¸è¿½åŠ ã™ã‚‹"""
         if student in self.students:
             raise ValueError('Duplicate student')
         self.students.append(student)
@@ -208,26 +208,26 @@ class Grades(object):
         self.isSorted = False
 
     def addGrade(self, student, grade):
-        """grade‚ğfloatŒ^‚Æ‚·‚é
-           grade‚ğstudent‚Ì¬ÑƒŠƒXƒg‚Ö’Ç‰Á‚·‚é"""
+        """gradeã‚’floatå‹ã¨ã™ã‚‹
+           gradeã‚’studentã®æˆç¸¾ãƒªã‚¹ãƒˆã¸è¿½åŠ ã™ã‚‹"""
         try:
             self.grades[student.getIdNum()].append(grade)
         except:
             raise ValueError('Student not in mapping')
 
     def getGrades(self, student):
-        """student‚Ì¬ÑƒŠƒXƒg‚ğ•Ô‚·"""
-        try: #student‚Ì¬ÑƒŠƒXƒg‚ÌƒRƒs[‚ğ•Ô‚·
+        """studentã®æˆç¸¾ãƒªã‚¹ãƒˆã‚’è¿”ã™"""
+        try: #studentã®æˆç¸¾ãƒªã‚¹ãƒˆã®ã‚³ãƒ”ãƒ¼ã‚’è¿”ã™
             return self.grades[student.getIdNum()][:]
         except:
             raise ValueError('Student not in mapping')
 
     def getStudents(self):
-        """¬ÑƒuƒbƒN‚Éû‚ß‚ç‚ê‚½Šw¶‚ÌƒŠƒXƒg‚ğ•Ô‚·"""
+        """æˆç¸¾ãƒ–ãƒƒã‚¯ã«åã‚ã‚‰ã‚ŒãŸå­¦ç”Ÿã®ãƒªã‚¹ãƒˆã‚’è¿”ã™"""
         if not self.isSorted:
             self.students.sort()
             self.isSorted = True
-        return self.students[:] #Šw¶‚ÌƒŠƒXƒg‚ÌƒRƒs[‚ğ•Ô‚·
+        return self.students[:] #å­¦ç”Ÿã®ãƒªã‚¹ãƒˆã®ã‚³ãƒ”ãƒ¼ã‚’è¿”ã™
 
 #Page 104
 allStudents = course1.getStudents()
@@ -235,7 +235,7 @@ allStudents.extend(course2.getStudents())
 
 #Page 105, Figure 8.6
 def gradeReport(course):
-    """course‚ğGradesŒ^‚Æ‚·‚é"""
+    """courseã‚’Gradeså‹ã¨ã™ã‚‹"""
     report = ''
     for s in course.getStudents():
         tot = 0.0
@@ -274,7 +274,7 @@ Rafael = MITPerson()
 
 #Page 107, Figure 8.7
 def getStudents(self):
-    """¬ÑƒuƒbƒN‚Éû‚ß‚ç‚ê‚½Šw¶‚ÌƒŠƒXƒg‚ğCˆê“x‚É1—v‘f‚¸‚Â•Ô‚·"""
+    """æˆç¸¾ãƒ–ãƒƒã‚¯ã«åã‚ã‚‰ã‚ŒãŸå­¦ç”Ÿã®ãƒªã‚¹ãƒˆã‚’ï¼Œä¸€åº¦ã«1è¦ç´ ãšã¤è¿”ã™"""
     if not self.isSorted:
         self.students.sort()
         self.isSorted = True
@@ -292,15 +292,15 @@ for s in course.getStudents():
 
 #Page 109, Figure 8.8
 def findPayment(loan, r, m):
-    """loan‚Ær‚ğfloatŒ^‚Æ‚µCm‚ğintŒ^‚Æ‚·‚é
-       ŒŠ„‚è‚Ì‹à—˜‚ğr‚Æ‚µ‚ÄCØ“üŠzloan‚ÌZ‘îƒ[ƒ“‚ğ
-       mƒ–Œ‚Å•ÔÏ‚·‚éê‡‚ÌC–ˆŒ‚Ì•ÔÏŠz‚ğ•Ô‚·"""
+    """loanã¨rã‚’floatå‹ã¨ã—ï¼Œmã‚’intå‹ã¨ã™ã‚‹
+       æœˆå‰²ã‚Šã®é‡‘åˆ©ã‚’rã¨ã—ã¦ï¼Œå€Ÿå…¥é¡loanã®ä½å®…ãƒ­ãƒ¼ãƒ³ã‚’
+       mãƒ¶æœˆã§è¿”æ¸ˆã™ã‚‹å ´åˆã®ï¼Œæ¯æœˆã®è¿”æ¸ˆé¡ã‚’è¿”ã™"""
     return loan*((r*(1+r)**m)/((1+r)**m - 1))
 
 class Mortgage(object):
-    """ˆÙ‚È‚éí—Ş‚ÌZ‘îƒ[ƒ“‚ğ\’z‚·‚é‚½‚ß‚Ì’ŠÛƒNƒ‰ƒX"""
+    """ç•°ãªã‚‹ç¨®é¡ã®ä½å®…ãƒ­ãƒ¼ãƒ³ã‚’æ§‹ç¯‰ã™ã‚‹ãŸã‚ã®æŠ½è±¡ã‚¯ãƒ©ã‚¹"""
     def __init__(self, loan, annRate, months):
-        """V‚½‚ÉZ‘îƒ[ƒ“‚ğ¶¬‚·‚é"""
+        """æ–°ãŸã«ä½å®…ãƒ­ãƒ¼ãƒ³ã‚’ç”Ÿæˆã™ã‚‹"""
         self.loan = loan
         self.rate = annRate/12.0
         self.months = months
@@ -309,12 +309,12 @@ class Mortgage(object):
         self.payment = findPayment(loan, self.rate, months)
         self.legend = None #description of mortgage
     def makePayment(self):
-        """•ÔÏ‚ğs‚¤"""
+        """è¿”æ¸ˆã‚’è¡Œã†"""
         self.paid.append(self.payment)
         reduction = self.payment - self.owed[-1]*self.rate
         self.owed.append(self.owed[-1] - reduction)
     def getTotalPaid(self):
-        """‚±‚ê‚Ü‚Å‚Éx•¥‚Á‚½‘Šz‚ğ•Ô‚·"""
+        """ã“ã‚Œã¾ã§ã«æ”¯æ‰•ã£ãŸç·é¡ã‚’è¿”ã™"""
         return sum(self.paid)
     def __str__(self):
         return self.legend

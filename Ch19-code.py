@@ -1,4 +1,4 @@
-﻿import pylab, random, string, copy
+import pylab, random, string, copy
 
 #Page 267, Figure 19.2
 def minkowskiDist(v1, v2, p):

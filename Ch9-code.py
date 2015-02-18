@@ -1,6 +1,6 @@
 #Page 113
 def f(i):
-   """i‚ğintŒ^‚Æ‚µC‚©‚Âi >= 0‚Å‚ ‚é‚Æ‚·‚é"""
+   """iã‚’intå‹ã¨ã—ï¼Œã‹ã¤i >= 0ã§ã‚ã‚‹ã¨ã™ã‚‹"""
    answer = 1
    while i >= 1:
       answer *= i
@@ -16,8 +16,8 @@ def linearSearch(L, x):
 
 #Page 115
 def fact(n):
-   """n‚ğ©‘R”‚Æ‚·‚é
-      n!‚ğ•Ô‚·"""
+   """nã‚’è‡ªç„¶æ•°ã¨ã™ã‚‹
+      n!ã‚’è¿”ã™"""
    answer = 1
    while n > 1:
       answer *= n
@@ -26,8 +26,8 @@ def fact(n):
 
 #Page 115, Figure 9.1
 def squareRootExhaustive(x, epsilon):
-   """x‚Æepsilon‚ğ³‚ÌfloatŒ^‚Æ‚µC‚©‚Âepsilon < 1‚Å‚ ‚é‚Æ‚·‚é
-      y*y‚Æx‚ÌŒë·‚ªepsilonˆÈ“à‚Å‚ ‚é‚æ‚¤‚Èy‚ğ•Ô‚·"""
+   """xã¨epsilonã‚’æ­£ã®floatå‹ã¨ã—ï¼Œã‹ã¤epsilon < 1ã§ã‚ã‚‹ã¨ã™ã‚‹
+      y*yã¨xã®èª¤å·®ãŒepsilonä»¥å†…ã§ã‚ã‚‹ã‚ˆã†ãªyã‚’è¿”ã™"""
    step = epsilon**2
    ans = 0.0
    while abs(ans**2 - x) >= epsilon and ans*ans <= x:
@@ -38,8 +38,8 @@ def squareRootExhaustive(x, epsilon):
 
 #Page 116, Figure 9.2
 def squareRootBi(x, epsilon):
-   """x‚Æepsilon‚ğ³‚ÌfloatŒ^‚Æ‚µC‚©‚Âepsilon < 1‚Å‚ ‚é‚Æ‚·‚é
-      y*y‚Æx‚ÌŒë·‚ªepsilonˆÈ“à‚Å‚ ‚é‚æ‚¤‚Èy‚ğ•Ô‚·"""
+   """xã¨epsilonã‚’æ­£ã®floatå‹ã¨ã—ï¼Œã‹ã¤epsilon < 1ã§ã‚ã‚‹ã¨ã™ã‚‹
+      y*yã¨xã®èª¤å·®ãŒepsilonä»¥å†…ã§ã‚ã‚‹ã‚ˆã†ãªyã‚’è¿”ã™"""
    low = 0.0
    high = max(1.0, x)
    ans = (high + low)/2.0
@@ -53,17 +53,17 @@ def squareRootBi(x, epsilon):
 
 #Page 116
 def f(x):
-   """x‚ğ³‚ÌintŒ^‚Æ‚·‚é"""
+   """xã‚’æ­£ã®intå‹ã¨ã™ã‚‹"""
    ans = 0
-   #’è”ŠÔ‚ğ—v‚·‚éƒ‹[ƒv
+   #å®šæ•°æ™‚é–“ã‚’è¦ã™ã‚‹ãƒ«ãƒ¼ãƒ—
    for i in range(1000):
       ans += 1
    print 'Number of additions so far', ans
-   #x‚ÌŠÔ‚ğ—v‚·‚éƒ‹[ƒv
+   #xã®æ™‚é–“ã‚’è¦ã™ã‚‹ãƒ«ãƒ¼ãƒ—
    for i in range(x):
       ans += 1
    print 'Number of additions so far', ans
-   #x**2‚ÌŠÔ‚ğ—v‚·‚é“ü‚êqƒ‹[ƒv
+   #x**2ã®æ™‚é–“ã‚’è¦ã™ã‚‹å…¥ã‚Œå­ãƒ«ãƒ¼ãƒ—
    for i in range(x):
       for j in range(x):
          ans += 1
@@ -73,8 +73,8 @@ def f(x):
 
 #Page 119
 def intToStr(i):
-   """i‚ğ”ñ•‰‚ÌintŒ^‚Æ‚·‚é
-      i‚Ì’l‚ğ10i”‚Å•\‚·•¶š—ñ‚ğ•Ô‚·"""
+   """iã‚’éè² ã®intå‹ã¨ã™ã‚‹
+      iã®å€¤ã‚’10é€²æ•°ã§è¡¨ã™æ–‡å­—åˆ—ã‚’è¿”ã™"""
    digits = '0123456789'
    if i == 0:
       return '0'
@@ -85,8 +85,8 @@ def intToStr(i):
    return result
 
 def addDigits(n):
-   """n‚ğ”ñ•‰‚ÌintŒ^‚Æ‚·‚é
-      n‚Ì’l‚ğ10i”‚Å•\‚µ‚½‚Æ‚«‚ÌŠeŒ…‚Ì”š‚Ì˜a‚ğ•Ô‚·"""
+   """nã‚’éè² ã®intå‹ã¨ã™ã‚‹
+      nã®å€¤ã‚’10é€²æ•°ã§è¡¨ã—ãŸã¨ãã®å„æ¡ã®æ•°å­—ã®å’Œã‚’è¿”ã™"""
    stringRep = intToStr(n)
    val = 0
    for c in stringRep:
@@ -94,8 +94,8 @@ def addDigits(n):
    return val
 
 def addDigits(s):
-   """s‚ğ•¶š—ñ‚Æ‚µC‚©‚ÂŠe•¶š‚ª10i”‚Ì”š‚Å‚ ‚é‚Æ‚·‚é
-      s‚ÌŠe”š‚Ì˜a‚ğ®”‚Æ‚µ‚Ä•Ô‚·"""
+   """sã‚’æ–‡å­—åˆ—ã¨ã—ï¼Œã‹ã¤å„æ–‡å­—ãŒ10é€²æ•°ã®æ•°å­—ã§ã‚ã‚‹ã¨ã™ã‚‹
+      sã®å„æ•°å­—ã®å’Œã‚’æ•´æ•°ã¨ã—ã¦è¿”ã™"""
    val = 0
    for c in s:
       val += int(c)
@@ -103,8 +103,8 @@ def addDigits(s):
 
 #Page 120
 def factorial(x):
-   """x‚ğ³‚ÌintŒ^‚Æ‚·‚é
-      x!‚ğ•Ô‚·"""
+   """xã‚’æ­£ã®intå‹ã¨ã™ã‚‹
+      x!ã‚’è¿”ã™"""
    if x == 1:
       return 1
    else:
@@ -112,9 +112,9 @@ def factorial(x):
 
 #Page 121, Figure 9.3
 def isSubset(L1, L2):
-   """L1‚ÆL2‚ğƒŠƒXƒg‚Æ‚·‚é
-      L1‚ÌŠe—v‘f‚ªL2‚É‚à‚ ‚ê‚ÎTrue‚ğC
-      ‚»‚¤‚Å‚È‚¯‚ê‚ÎFalse‚ğ•Ô‚·"""
+   """L1ã¨L2ã‚’ãƒªã‚¹ãƒˆã¨ã™ã‚‹
+      L1ã®å„è¦ç´ ãŒL2ã«ã‚‚ã‚ã‚Œã°Trueã‚’ï¼Œ
+      ãã†ã§ãªã‘ã‚Œã°Falseã‚’è¿”ã™"""
    for e1 in L1:
       matched = False
       for e2 in L2:
@@ -127,15 +127,15 @@ def isSubset(L1, L2):
 
 #Page 121, Figure 9.4
 def intersect(L1, L2):
-   """L1‚ÆL2‚ğƒŠƒXƒg‚Æ‚·‚é
-      L1‚ÆL2‚Ì‹¤’Ê•”•ª‚©‚ç‚È‚éƒŠƒXƒg‚ğ•Ô‚·"""
-   #‹¤’Ê‚Ì—v‘f‚©‚ç‚È‚éƒŠƒXƒg‚ğ\’z‚·‚é
+   """L1ã¨L2ã‚’ãƒªã‚¹ãƒˆã¨ã™ã‚‹
+      L1ã¨L2ã®å…±é€šéƒ¨åˆ†ã‹ã‚‰ãªã‚‹ãƒªã‚¹ãƒˆã‚’è¿”ã™"""
+   #å…±é€šã®è¦ç´ ã‹ã‚‰ãªã‚‹ãƒªã‚¹ãƒˆã‚’æ§‹ç¯‰ã™ã‚‹
    tmp = []
    for e1 in L1:
       for e2 in L2:
          if e1 == e2:
             tmp.append(e1)
-   #d•¡‚Ì‚È‚¢ƒŠƒXƒg‚ğ\’z‚·‚é
+   #é‡è¤‡ã®ãªã„ãƒªã‚¹ãƒˆã‚’æ§‹ç¯‰ã™ã‚‹
    result = []
    for e in tmp:
       if e not in result:
@@ -144,8 +144,8 @@ def intersect(L1, L2):
 
 #Page 122, Figure 9.5
 def getBinaryRep(n, numDigits):
-   """n‚ÆnumDigits‚ğ”ñ•‰‚ÌintŒ^‚Æ‚·‚é
-      n‚Ì’l‚ğCnumDigitsŒ…‚Ì2i”‚Å•\‚·•¶š—ñ‚ğ•Ô‚·"""
+   """nã¨numDigitsã‚’éè² ã®intå‹ã¨ã™ã‚‹
+      nã®å€¤ã‚’ï¼ŒnumDigitsæ¡ã®2é€²æ•°ã§è¡¨ã™æ–‡å­—åˆ—ã‚’è¿”ã™"""
    result = ''
    while n > 0:
       result = str(n%2) + result
@@ -157,10 +157,10 @@ def getBinaryRep(n, numDigits):
    return result
 
 def genPowerset(L):
-   """L‚ğƒŠƒXƒg‚Æ‚·‚é
-      L‚Ì—v‘f‚ÌC‚·‚×‚Ä‚Ì‰Â”\‚È‘g‡‚¹‚©‚ç‚È‚éƒŠƒXƒg‚ğ•Ô‚·
-      —á‚¦‚ÎL‚ª[1, 2]‚È‚ç‚ÎC
-      [], [1], [2], [1,2] ‚ğ—v‘f‚É‚à‚ÂƒŠƒXƒg‚ğ•Ô‚·"""
+   """Lã‚’ãƒªã‚¹ãƒˆã¨ã™ã‚‹
+      Lã®è¦ç´ ã®ï¼Œã™ã¹ã¦ã®å¯èƒ½ãªçµ„åˆã›ã‹ã‚‰ãªã‚‹ãƒªã‚¹ãƒˆã‚’è¿”ã™
+      ä¾‹ãˆã°LãŒ[1, 2]ãªã‚‰ã°ï¼Œ
+      [], [1], [2], [1,2] ã‚’è¦ç´ ã«ã‚‚ã¤ãƒªã‚¹ãƒˆã‚’è¿”ã™"""
    powerset = []
    for i in range(0, 2**len(L)):
       binStr = getBinaryRep(i, len(L))

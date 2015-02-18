@@ -1,4 +1,4 @@
-﻿import pylab, random
+import pylab, random
 from rcParamsSettings import *
 
 #Page 236, Figure 17.2

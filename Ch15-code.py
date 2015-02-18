@@ -1,15 +1,16 @@
+# coding: utf-8
 import pylab, random
 from rcParamsSettings import *
 
-#Ÿ‚Ì2‚Â‚ÌŠÖ”‚ÍˆÈ‘O‚ÌÍ‚ÅŠù‚É’è‹`‚µ‚Ä‚¨‚èC‚±‚±‚Å—p‚¢‚éD
+#æ¬¡ã®2ã¤ã®é–¢æ•°ã¯ä»¥å‰ã®ç« ã§æ—¢ã«å®šç¾©ã—ã¦ãŠã‚Šï¼Œã“ã“ã§ç”¨ã„ã‚‹ï¼
 def stdDev(X):
-    """X‚ğ”‚ÌƒŠƒXƒg‚Æ‰¼’è‚·‚éD
-       X‚Ì•W€•Î·‚ğ•Ô‚·"""
+    """Xã‚’æ•°ã®ãƒªã‚¹ãƒˆã¨ä»®å®šã™ã‚‹ï¼
+       Xã®æ¨™æº–åå·®ã‚’è¿”ã™"""
     mean = float(sum(X))/len(X)
     tot = 0.0
     for x in X:
         tot += (x - mean)**2
-    return (tot/len(X))**0.5 #•½‹Ï‚Æ‚Ì·‚Ì•½•ûª
+    return (tot/len(X))**0.5 #å¹³å‡ã¨ã®å·®ã®å¹³æ–¹æ ¹
 
 def CV(X):
     mean = sum(X)/float(len(X))
@@ -38,10 +39,10 @@ def plotData(inputFile):
     distances = pylab.array(distances)
     forces = masses*9.81
     pylab.plot(forces, distances, 'bo',
-               label = e•ÏˆÊ‚ÌŠÏ‘ª’l')
-    pylab.title(eƒoƒl‚Ì•ÏˆÊ‚ÌŠÏ‘ª’l')
-    pylab.xlabel('|—Í| (ƒjƒ…[ƒgƒ“)f)
-    pylab.ylabel(e‹——£ (ƒ[ƒgƒ‹)')
+               label = 'å¤‰ä½ã®è¦³æ¸¬å€¤')
+    pylab.title('ãƒãƒã®å¤‰ä½ã®è¦³æ¸¬å€¤')
+    pylab.xlabel('|åŠ›| (ãƒ‹ãƒ¥ãƒ¼ãƒˆãƒ³)')
+    pylab.ylabel('è·é›¢ (ãƒ¡ãƒ¼ãƒˆãƒ«)')
 
 
 #Page 212, Figure 15.3
@@ -51,16 +52,16 @@ def fitData(inputFile):
     masses = pylab.array(masses)
     forces = masses*9.81
     pylab.plot(forces, distances, 'bo',
-               label = e•ÏˆÊ‚ÌŠÏ‘ª’l')
-    pylab.title(eƒoƒl‚Ì•ÏˆÊ‚ÌŠÏ‘ª’l')
-    pylab.xlabel('|—Í| (ƒjƒ…[ƒgƒ“)')
-    pylab.ylabel(e‹——£ (ƒ[ƒgƒ‹)f)
-    #1Ÿ‚Ì“K‡‹Èüi’¼üj‚ğ‹‚ß‚é
+               label = 'å¤‰ä½ã®è¦³æ¸¬å€¤')
+    pylab.title('ãƒãƒã®å¤‰ä½ã®è¦³æ¸¬å€¤')
+    pylab.xlabel('|åŠ›| (ãƒ‹ãƒ¥ãƒ¼ãƒˆãƒ³)')
+    pylab.ylabel('è·é›¢ (ãƒ¡ãƒ¼ãƒˆãƒ«)â€™)
+    #1æ¬¡ã®é©åˆæ›²ç·šï¼ˆç›´ç·šï¼‰ã‚’æ±‚ã‚ã‚‹
     a,b = pylab.polyfit(forces, distances, 1)
     predictedDistances = a*pylab.array(forces) + b
     k = 1.0/a
     pylab.plot(forces, predictedDistances,
-               label = e•ÏˆÊ‚ÌüŒ`“K‡‚É‚æ‚é—\‘ª’l, k = '
+               label = 'å¤‰ä½ã®ç·šå½¢é©åˆã«ã‚ˆã‚‹äºˆæ¸¬å€¤, k = '
                + str(round(k, 5)))
     pylab.legend(loc = 'best')
 ##    pylab.plot(forces, predictedDistances,
@@ -68,12 +69,12 @@ def fitData(inputFile):
 ##               + str(round(k,5)))
 
 #Page 212, additional code for fitData in Fig. 15.3
-#3Ÿ‚Ì“K‡‹Èü‚ğ‹‚ß‚é
+#3æ¬¡ã®é©åˆæ›²ç·šã‚’æ±‚ã‚ã‚‹
 a,b,c,d = pylab.polyfit(forces, distances, 3)
 predictedDistances = a*(forces**3) + b*forces**2 + c*forces + d
-pylab.plot(forces, predictedDistances, 'b:', label = e3Ÿ‚Ì“K‡')
+pylab.plot(forces, predictedDistances, 'b:', label = '3æ¬¡ã®é©åˆ')
 
-#Page 213, }15.3‚ÌfitData‚ğC³‚µ‚½‚à‚Ì
+#Page 213, å›³15.3ã®fitDataã‚’ä¿®æ­£ã—ãŸã‚‚ã®
 distances = pylab.array(distances[:-6])
 masses = pylab.array(masses[:-6])
 
@@ -97,29 +98,28 @@ def processTrajectories(fileName):
     distances, heights = getTrajectoryData(fileName)
     numTrials = len(heights)
     distances = pylab.array(distances)
-    #Še‹——£‚É‚¨‚¯‚é•½‹Ï‚‚³‚ğ‚à‚Â”z—ñ‚ğ“¾‚é
+    #å„è·é›¢ã«ãŠã‘ã‚‹å¹³å‡é«˜ã•ã‚’ã‚‚ã¤é…åˆ—ã‚’å¾—ã‚‹
     totHeights = pylab.array([0]*len(distances))
     for h in heights:
         totHeights = totHeights + pylab.array(h)
     meanHeights = totHeights/len(heights)
-    pylab.title(e”­Ë•¨‚Ì‹OÕ ('\
-                + str(numTrials) + ' ‰ñ‚Ìs‚Ì•½‹Ï’l)f)
-    pylab.xlabel(e”­Ë‚©‚ç‚ÌƒCƒ“ƒ`”')
-    pylab.ylabel(e”­Ë‚©‚ç‚Ì‚‚³iƒCƒ“ƒ`j')
+    pylab.title('ç™ºå°„ç‰©ã®è»Œè·¡ ('                + str(numTrials) + ' å›ã®è©¦è¡Œã®å¹³å‡å€¤)â€™)
+    pylab.xlabel('ç™ºå°„ã‹ã‚‰ã®ã‚¤ãƒ³ãƒæ•°')
+    pylab.ylabel('ç™ºå°„ã‹ã‚‰ã®é«˜ã•ï¼ˆã‚¤ãƒ³ãƒï¼‰')
     pylab.plot(distances, meanHeights, 'bo')
     a,b = pylab.polyfit(distances, meanHeights, 1)
     altitudes = a*distances + b
-    pylab.plot(distances, altitudes, 'b', label = eüŒ`“K‡')
+    pylab.plot(distances, altitudes, 'b', label = 'ç·šå½¢é©åˆ')
     a,b,c = pylab.polyfit(distances, meanHeights, 2)
     altitudes = a*(distances**2) +  b*distances + c
-    pylab.plot(distances, altitudes, 'b:', label = e2‚Ì“K‡')
+    pylab.plot(distances, altitudes, 'b:', label = '2ã®é©åˆ')
     pylab.legend()
 
 #Page 216, Figure 15.5
 def rSquared(measured, predicted):
-    """measured‚ÍŠÏ‘ª’l‚ğ•Û‚·‚é1ŸŒ³‚Ì”z—ñ
-       predicted‚Í—\‘ª’l‚ğ•Û‚·‚é1ŸŒ³‚Ì”z—ñ‚Æ‰¼’è‚·‚é
-       Œˆ’è•Ï”‚ğ•Ô‚·"""
+    """measuredã¯è¦³æ¸¬å€¤ã‚’ä¿æŒã™ã‚‹1æ¬¡å…ƒã®é…åˆ—
+       predictedã¯äºˆæ¸¬å€¤ã‚’ä¿æŒã™ã‚‹1æ¬¡å…ƒã®é…åˆ—ã¨ä»®å®šã™ã‚‹
+       æ±ºå®šå¤‰æ•°ã‚’è¿”ã™"""
     estimateError = ((predicted - measured)**2).sum()
     meanOfMeasured = measured.sum()/float(len(measured))
     variability = ((measured - meanOfMeasured)**2).sum()
@@ -127,31 +127,31 @@ def rSquared(measured, predicted):
 
 #Page 218, Figure 15.6
 def getHorizontalSpeed(a, b, c, minX, maxX):
-    """minX‚ÆmaxX‚ğƒCƒ“ƒ`’PˆÊ‚Ì‹——£‚Æ‰¼’è‚·‚éD
-       …•½•ûŒü‚Ì‘¬“x‚ğ•Ô‚·i’PˆÊ‚ÍƒtƒB[ƒg/•bjD"""
+    """minXã¨maxXã‚’ã‚¤ãƒ³ãƒå˜ä½ã®è·é›¢ã¨ä»®å®šã™ã‚‹ï¼
+       æ°´å¹³æ–¹å‘ã®é€Ÿåº¦ã‚’è¿”ã™ï¼ˆå˜ä½ã¯ãƒ•ã‚£ãƒ¼ãƒˆ/ç§’ï¼‰ï¼"""
     inchesPerFoot = 12.0
     xMid = (maxX - minX)/2.0
     yPeak = a*xMid**2 + b*xMid + c
-    g = 32.16*inchesPerFoot #d—Í‰Á‘¬“xiƒCƒ“ƒ`/•b/•bj
+    g = 32.16*inchesPerFoot #é‡åŠ›åŠ é€Ÿåº¦ï¼ˆã‚¤ãƒ³ãƒ/ç§’/ç§’ï¼‰
     t = (2*yPeak/g)**0.5
-    print e…•½•ûŒü‚Ì‘¬“x =', int(xMid/(t*inchesPerFoot)), eƒtƒB[ƒg/•bf
+    print 'æ°´å¹³æ–¹å‘ã®é€Ÿåº¦ =', int(xMid/(t*inchesPerFoot)), 'ãƒ•ã‚£ãƒ¼ãƒˆ/ç§’â€™
 
 #Page 218, Figure 15.7
 vals = []
 for i in range(10):
     vals.append(2**i)
-pylab.plot(vals,'bo', label = eÀÛ‚Ì“_')
+pylab.plot(vals,'bo', label = 'å®Ÿéš›ã®ç‚¹')
 xVals = pylab.arange(10)
 a,b,c,d,e = pylab.polyfit(xVals, vals, 4)
 yVals = a*(xVals**4) + b*(xVals**3) + c*(xVals**2)+ d*xVals + e
-pylab.plot(yVals, 'bx', label = e—\‘ª“_', markersize = 20)
+pylab.plot(yVals, 'bx', label = 'äºˆæ¸¬ç‚¹', markersize = 20)
 pylab.title('Fitting y = 2**x')
 pylab.legend()
 
 #Page 219, additional code for Figure 15.7
 pred2to20 = a*(20**4) + b*(20**3) + c*(20**2)+ d*20 + e
-print eƒ‚ƒfƒ‹‚Ì—\‘ª‚É‚æ‚é‚ÆC2**20‚Í‚¨‚¨‚æ‚»', round(pred2to20)
-print e2**20‚ÌÀÛ‚Ì’l‚Í', 2**20
+print 'ãƒ¢ãƒ‡ãƒ«ã®äºˆæ¸¬ã«ã‚ˆã‚‹ã¨ï¼Œ2**20ã¯ãŠãŠã‚ˆã', round(pred2to20)
+print '2**20ã®å®Ÿéš›ã®å€¤ã¯', 2**20
 
 xVals, yVals = [], []
 for i in range(10):
@@ -163,38 +163,38 @@ pylab.semilogy()
 #Page 220, Figure 15.8
 import math
 
-#”CˆÓ‚Ìw”ŠÖ”‚ğ’è‹`‚·‚é
+#ä»»æ„ã®æŒ‡æ•°é–¢æ•°ã‚’å®šç¾©ã™ã‚‹
 def f(x):
     return 3*(2**(1.2*x))
 
 def createExpData(f, xVals):
-    """f‚ğˆø”‚ğ1‚Â‚à‚Âw”ŠÖ”‚Æ‰¼’è‚·‚é
-       xVals‚ğCf‚Ì“K“–‚Èˆø”‚ğ‚à‚Â”z—ñ‚Æ‚·‚é
-       xVals‚Ì—v‘f‚ÉŠÖ”f‚ğ“K—p‚µ‚½Œ‹‰Ê‚ğ•Û‚·‚é”z—ñ‚ğ•Ô‚·D"""
+    """fã‚’å¼•æ•°ã‚’1ã¤ã‚‚ã¤æŒ‡æ•°é–¢æ•°ã¨ä»®å®šã™ã‚‹
+       xValsã‚’ï¼Œfã®é©å½“ãªå¼•æ•°ã‚’ã‚‚ã¤é…åˆ—ã¨ã™ã‚‹
+       xValsã®è¦ç´ ã«é–¢æ•°fã‚’é©ç”¨ã—ãŸçµæœã‚’ä¿æŒã™ã‚‹é…åˆ—ã‚’è¿”ã™ï¼"""
     yVals = []
     for i in range(len(xVals)):
         yVals.append(f(xVals[i]))
     return pylab.array(xVals), pylab.array(yVals)
 
 def fitExpData(xVals, yVals):
-    """xVals‚ÆyVals‚ğC
-       yVals[i] == f(xVals[i])‚Æ‚È‚é”‚ğ•Û‚·‚é”z—ñ‚Æ‰¼’è‚·‚éD
-       log(f(x), base) == ax + b‚ğ–‚½‚·a,b‚ğ•Ô‚·"""
+    """xValsã¨yValsã‚’ï¼Œ
+       yVals[i] == f(xVals[i])ã¨ãªã‚‹æ•°ã‚’ä¿æŒã™ã‚‹é…åˆ—ã¨ä»®å®šã™ã‚‹ï¼
+       log(f(x), base) == ax + bã‚’æº€ãŸã™a,bã‚’è¿”ã™"""
     logVals = []
     for y in yVals:
-        logVals.append(math.log(y, 2.0)) #’ê‚ª2‚Ì‘Î”‚ğ“¾‚é
+        logVals.append(math.log(y, 2.0)) #åº•ãŒ2ã®å¯¾æ•°ã‚’å¾—ã‚‹
     a,b = pylab.polyfit(xVals, logVals, 1)
     return a, b, 2.0
 
 xVals, yVals = createExpData(f, range(10))
-pylab.plot(xVals, yVals, 'ro', label = eÀÛ‚Ì’l')
+pylab.plot(xVals, yVals, 'ro', label = 'å®Ÿéš›ã®å€¤')
 a, b, base = fitExpData(xVals, yVals)
 predictedYVals = []
 for x in xVals:
     predictedYVals.append(base**(a*x + b))
-pylab.plot(xVals, predictedYVals, label = e—\‘ª’l')
-pylab.title(ew”ŠÖ”‚ğ“K‡‚·‚é')
+pylab.plot(xVals, predictedYVals, label = 'äºˆæ¸¬å€¤')
+pylab.title('æŒ‡æ•°é–¢æ•°ã‚’é©åˆã™ã‚‹')
 pylab.legend()
-#ƒIƒŠƒWƒiƒ‹‚Ìƒf[ƒ^‚É‚Í‚È‚¢x‚Ì’l‚ğ’²‚×‚é
+#ã‚ªãƒªã‚¸ãƒŠãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã«ã¯ãªã„xã®å€¤ã‚’èª¿ã¹ã‚‹
 print 'f(20) =', f(20)
 print 'Predicted f(20) =', base**(a*20 + b)

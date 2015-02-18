@@ -1,16 +1,17 @@
+# coding: utf-8
 import pylab, random
-from rcParamsSettings import *
+#from rcParamsSettings import *
 
-#Ÿ‚Ì2‚Â‚ÌŠÖ”‚ÍˆÈ‘O’è‹`‚µ‚½‚à‚Ì‚Å‚ ‚èC
-#‚±‚ÌÍ‚Åg‚¤D
+#æ¬¡ã®2ã¤ã®é–¢æ•°ã¯ä»¥å‰å®šç¾©ã—ãŸã‚‚ã®ã§ã‚ã‚Šï¼Œ
+#ã“ã®ç« ã§ä½¿ã†ï¼
 def stdDev(X):
-@@@"""X‚ğ”‚ÌƒŠƒXƒg‚Æ‰¼’è‚·‚éD
-       X‚Ì•W€•Î·‚ğ•Ô‚·"""    
+    """Xã‚’æ•°ã®ãƒªã‚¹ãƒˆã¨ä»®å®šã™ã‚‹ï¼
+       Xã®æ¨™æº–åå·®ã‚’è¿”ã™"""    
     mean = float(sum(X))/len(X)
     tot = 0.0
     for x in X:
         tot += (x - mean)**2
-    return (tot/len(X))**0.5 #•½‹Ï‚Æ‚Ì•½•ûª
+    return (tot/len(X))**0.5 #å¹³å‡ã¨ã®å¹³æ–¹æ ¹
 
 def CV(X):
     mean = sum(X)/float(len(X))
@@ -19,13 +20,13 @@ def CV(X):
     except ZeroDivisionError:
         return float('nan')
 
-#194ƒy[ƒWC}14.1
+#194ãƒšãƒ¼ã‚¸ï¼Œå›³14.1
 def rollDie():
     return random.choice([1,2,3,4,5,6])
 
 def checkPascal(numTrials):
-    """numTrials‚Í1ˆÈã‚Ì®”iintj‚Æ‰¼’è‚·‚é
-       Ÿ—˜‚·‚éŠm—¦‚Ì•]‰¿’l‚ğ•\¦‚·‚é"""
+    """numTrialsã¯1ä»¥ä¸Šã®æ•´æ•°ï¼ˆintï¼‰ã¨ä»®å®šã™ã‚‹
+       å‹åˆ©ã™ã‚‹ç¢ºç‡ã®è©•ä¾¡å€¤ã‚’è¡¨ç¤ºã™ã‚‹"""
     numWins = 0.0
     for i in range(numTrials):
         for j in range(24):
@@ -34,9 +35,9 @@ def checkPascal(numTrials):
             if d1 == 6 and d2 == 6:
                 numWins += 1
                 break
-    print 'Ÿ—˜‚·‚éŠm—¦ =', numWins/numTrials
+    print 'å‹åˆ©ã™ã‚‹ç¢ºç‡ =', numWins/numTrials
 
-#196ƒy[ƒW, }14.2
+#196ãƒšãƒ¼ã‚¸, å›³14.2
 class CrapsGame(object):
     def __init__(self):
         self.passWins, self.passLosses = (0,0)
@@ -72,21 +73,21 @@ class CrapsGame(object):
     def dpResults(self):
         return (self.dpWins, self.dpLosses, self.dpPushes)
 
-#197ƒy[ƒW, }14.3
+#197ãƒšãƒ¼ã‚¸, å›³14.3
 def crapsSim(handsPerGame, numGames):
-    """handsPerGame‚ÆnumGames‚Í1ˆÈã‚Ì®”iintj‚Æ‰¼’è‚·‚é
-       handsPerGame‚Ìè‚©‚ç¬‚éƒQ[ƒ€‚ğnumGames‰ñƒvƒŒƒC‚µC
-       ‚»‚ÌŒ‹‰Ê‚ğ•\¦‚·‚é"""
+    """handsPerGameã¨numGamesã¯1ä»¥ä¸Šã®æ•´æ•°ï¼ˆintï¼‰ã¨ä»®å®šã™ã‚‹
+       handsPerGameã®æ‰‹ã‹ã‚‰æˆã‚‹ã‚²ãƒ¼ãƒ ã‚’numGameså›ãƒ—ãƒ¬ã‚¤ã—ï¼Œ
+       ãã®çµæœã‚’è¡¨ç¤ºã™ã‚‹"""
     games = []
 
-    #ƒQ[ƒ€‚ğnumGames‰ñƒvƒŒƒC‚·‚é
+    #ã‚²ãƒ¼ãƒ ã‚’numGameså›ãƒ—ãƒ¬ã‚¤ã™ã‚‹
     for t in xrange(numGames):
         c = CrapsGame()
         for i in xrange(handsPerGame):
             c.playHand()
         games.append(c)
         
-    #ŠeƒQ[ƒ€‚Ì“Œv’l‚ğ‹‚ß‚é
+    #å„ã‚²ãƒ¼ãƒ ã®çµ±è¨ˆå€¤ã‚’æ±‚ã‚ã‚‹
     pROIPerGame, dpROIPerGame = [], []
     for g in games:
         wins, losses = g.passResults()
@@ -94,17 +95,17 @@ def crapsSim(handsPerGame, numGames):
         wins, losses, pushes = g.dpResults()
         dpROIPerGame.append((wins - losses)/float(handsPerGame))
         
-    #“Œv’l‚ÌŠT—v‚ğ‹‚ß‚Ä•\¦‚·‚é
+    #çµ±è¨ˆå€¤ã®æ¦‚è¦ã‚’æ±‚ã‚ã¦è¡¨ç¤ºã™ã‚‹
     meanROI = str(round((100.0*sum(pROIPerGame)/numGames), 4)) + '%'
     sigma = str(round(100.0*stdDev(pROIPerGame), 4)) + '%'
-    print eƒoƒX:f, eROI‚Ì•½‹Ï’l =', meanROI, 'Std. Dev. =', sigma
+    print 'ãƒã‚¹:', 'ROIã®å¹³å‡å€¤ =', meanROI, 'Std. Dev. =', sigma
     meanROI = str(round((100.0*sum(dpROIPerGame)/numGames), 4)) + '%'
     sigma = str(round(100.0*stdDev(dpROIPerGame), 4)) + '%'
-    print eƒhƒ“ƒgƒoƒX:','ROI‚Ì•½‹Ï’l =', meanROI, e•W€•Î· =', sigma
+    print 'ãƒ‰ãƒ³ãƒˆãƒã‚¹:','ROIã®å¹³å‡å€¤ =', meanROI, 'æ¨™æº–åå·® =', sigma
 
-#200ƒy[ƒW,@}14.4
+#200ãƒšãƒ¼ã‚¸,ã€€å›³14.4
 def playHand(self):
-    #playHand‚ÌC‚æ‚è‚‘¬‚ÈC‚à‚¤1‚Â‚ÌÀ‘•
+    #playHandã®ï¼Œã‚ˆã‚Šé«˜é€Ÿãªï¼Œã‚‚ã†1ã¤ã®å®Ÿè£…
     pointsDict = {4:1/3.0, 5:2/5.0, 6:5/11.0, 8:5/11.0,
                   9:2/5.0, 10:1/3.0}
     throw = rollDie() + rollDie()
@@ -118,10 +119,10 @@ def playHand(self):
         else:
             self.dpWins += 1
     else:
-        if random.random() <= pointsDict[throw]: #7‚Ì‘O‚Éƒ|ƒCƒ“ƒg‚ªo‚é
+        if random.random() <= pointsDict[throw]: #7ã®å‰ã«ãƒã‚¤ãƒ³ãƒˆãŒå‡ºã‚‹
             self.passWins += 1
             self.dpLosses += 1
-        else:                                    #ƒ|ƒCƒ“ƒg‚Ì‘O‚É7‚ªo‚é
+        else:                                    #ãƒã‚¤ãƒ³ãƒˆã®å‰ã«7ãŒå‡ºã‚‹
             self.passLosses += 1
             self.dpWins += 1
 
@@ -133,7 +134,7 @@ def throwNeedles(numNeedles):
         y = random.random()
         if (x*x + y*y)**0.5 <= 1.0:
             inCircle += 1
-    #ˆê‚Â‚ÌÛŒÀ“à‚Ìj‚Ì‚İ”‚¦‚é‚½‚ßC4”{‚·‚é
+    #ä¸€ã¤ã®è±¡é™å†…ã®é‡ã®ã¿æ•°ãˆã‚‹ãŸã‚ï¼Œ4å€ã™ã‚‹
     return 4*(inCircle/float(numNeedles))
 
 def getEst(numNeedles, numTrials):
@@ -143,9 +144,7 @@ def getEst(numNeedles, numTrials):
         estimates.append(piGuess)
     sDev = stdDev(estimates)
     curEst = sum(estimates)/len(estimates)
-    print e•]‰¿’l = ' + str(round(curEst, 5)) +\
-          ', •W€•Î· = ' + str(round(sDev, 5))\
-          + ', j‚Ì” = ' + str(numNeedles)
+    print 'è©•ä¾¡å€¤ = ' + str(round(curEst, 5)) +          ', æ¨™æº–åå·® = ' + str(round(sDev, 5))          + ', é‡ã®æ•° = ' + str(numNeedles)
     return (curEst, sDev)
 
 def estPi(precision, numTrials):
